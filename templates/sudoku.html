@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <style>
+        table {
+            margin: auto;
+            border-collapse: collapse;
+        }
+        td {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid #555;
+            font-size: 20px;
+        }
+        /* Bold borders for 3x3 boxes */
+        tr:nth-child(3n) td {
+            border-bottom: 3px solid #000;
+        }
+        td:nth-child(3n) {
+            border-right: 3px solid #000;
+        }
+        td:nth-child(1) {
+            border-left: 3px solid #000;
+        }
+        tr:nth-child(1) td {
+            border-top: 3px solid #000;
+        }
+        h1 {
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+            font-size: 16px;
+            padding: 5px 10px;
+            border: 1px solid rgb(177, 175, 181);
+            border-radius: 10px;
+            padding:15px;
+            transition: transform 0.2s, background-color 0.3s;
+            box-shadow: 0px 20px 20px rgb(218, 217, 221);
+        }
+        button:hover {
+            background-color: rgb(149, 200, 245);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1 id="sud">SUDOKU</h1>
+    <form action="/game" method="post" align="center">
+        <table>
+            {% for i in range(9) %}
+            <tr>
+                {% for j in range(9) %}
+                <td class="{% if i % 3 == 2 %}box{% endif %} {% if j % 3 == 2 %}box{% endif %}">
+                {% if board[i][j] == 0 %}
+                    
+                {% else %}
+                    {{ board[i][j] }}
+                {% endif %}
+                </td>
+                {%endfor %}
+            </tr>
+            {% endfor %}
+        </table><br>
+        <label>Row (0-8): <input type="number" name="row" min="0" max="8" required></label><br><br>
+        <label>Column (0-8): <input type="number" name="col" min="0" max="8" required></label><br><br>
+        <label>Number (1-9): <input type="number" name="num" min="1" max="9" required></label><br><br>
+        <button type="submit">Submit Move</button>
+    </form>
+    <p align="center" style="color:red">{{ message }}</p>
+</body>
+</html>
