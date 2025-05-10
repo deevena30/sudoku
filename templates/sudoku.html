@@ -4,50 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudoku</title>
-    <style>
-        table {
-            margin: auto;
+<style>         
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin-bottom: 150px;
+            margin-top: 0px;
+            padding: 20px;
+        }
+        
+        h1 {             
+            text-align: center;
+            color: #2c3e50;
+            font-size: 36px;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }               
+        
+        table {             
+            margin: auto;             
             border-collapse: collapse;
-        }
-        td {
-            width: 40px;
-            height: 40px;
-            text-align: center;
-            vertical-align: middle;
-            border: 1px solid #555;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }         
+        
+        td {             
+            width: 40px;             
+            height: 40px;             
+            text-align: center;             
+            vertical-align: middle;             
+            border: 1px solid #555;             
             font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }         
+        
+        /* Bold borders for 3x3 boxes */         
+        tr:nth-child(3n) td {             
+            border-bottom: 3px solid #000;         
+        }         
+        
+        td:nth-child(3n) {             
+            border-right: 3px solid #000;         
+        }         
+        
+        td:nth-child(1) {             
+            border-left: 3px solid #000;         
+        }         
+        
+        tr:nth-child(1) td {             
+            border-top: 3px solid #000;         
         }
-        /* Bold borders for 3x3 boxes */
-        tr:nth-child(3n) td {
-            border-bottom: 3px solid #000;
-        }
-        td:nth-child(3n) {
-            border-right: 3px solid #000;
-        }
-        td:nth-child(1) {
-            border-left: 3px solid #000;
-        }
-        tr:nth-child(1) td {
-            border-top: 3px solid #000;
-        }
-        h1 {
+        
+        form {
             text-align: center;
+            margin-top: 20px;
         }
-        button {
-            margin-top: 10px;
-            font-size: 16px;
-            padding: 5px 10px;
-            border: 1px solid rgb(177, 175, 181);
-            border-radius: 10px;
-            padding:15px;
-            transition: transform 0.2s, background-color 0.3s;
-            box-shadow: 0px 20px 20px rgb(218, 217, 221);
+        
+        label {
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 5px 0;
+            display: inline-block;
         }
-        button:hover {
-            background-color: rgb(149, 200, 245);
-            transform: scale(1.05);
+        
+        input[type="number"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 5px 0;
+            width: 60px;
         }
-    </style>
+        
+        button {             
+            margin-top: 10px;             
+            font-size: 16px;             
+            padding: 10px 20px;             
+            border: 1px solid #3498db;             
+            border-radius: 10px;             
+            padding: 15px;             
+            transition: transform 0.2s, background-color 0.3s;             
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+        }         
+        
+        button:hover {             
+            background-color: #2980b9;             
+            transform: scale(1.05);         
+        }
+        
+    </style> 
 </head>
 <body>
     <h1 id="sud">SUDOKU</h1>
@@ -67,9 +116,9 @@
             </tr>
             {% endfor %}
         </table><br>
-        <label>Row (0-8): <input type="number" name="row" min="0" max="8" required></label><br><br>
-        <label>Column (0-8): <input type="number" name="col" min="0" max="8" required></label><br><br>
-        <label>Number (1-9): <input type="number" name="num" min="1" max="9" required></label><br><br>
+        <label>Row (0-8): <input type="number" name="row" min="0" max="8" required></label><br>
+        <label>Column (0-8): <input type="number" name="col" min="0" max="8" required></label><br>
+        <label>Number (1-9): <input type="number" name="num" min="1" max="9" required></label><br>
         <button type="submit">Submit Move</button>
     </form>
     <p align="center" style="color:red">{{ message }}</p>
