@@ -179,4 +179,4 @@ def new_game():
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    sudoku.run(debug=True)
+    sudoku.run(host="0.0.0.0", port=5000)
