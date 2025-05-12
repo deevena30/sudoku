@@ -3,89 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sudoku Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .difficulty-form {
+            margin: 30px 0;
+            padding: 80px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0px 20px 20px rgb(192, 188, 188);
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .radio{
+            padding:10px;
+        }
+        .radio:hover{
+            transform:scale(1.1);
+            transition: transform 0.3s ease;
+        }
+    </style>
 </head>
-<style>
-    body {
-    margin: 0;
-    font-family: sans-serif;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-}
-
-#start {
-    box-shadow: 0px 20px 20px rgba(141, 140, 140, 0.6);
-    width: 90%;
-    max-width: 400px;
-    height: auto;
-    text-align: center;
-    border-radius: 20px;
-    padding: 25px;
-    margin-top: 50px;
-    background-color: #d0e6f7;
-    font-size: 1.2rem;
-}
-
-#box {
-    font-size: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.inputlev {
-    background-color: #fff;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.3s;
-}
-
-.inputlev:hover {
-    background-color: #7ab2ea;
-    transform: translateY(-2px);
-}
-
-#startbtn {
-    background-color: #6bc4ea;
-    border: none;
-    padding: 12px 25px;
-    font-size: 1rem;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    margin-top: 10px;
-}
-
-#startbtn:hover {
-    background-color:  #fff;
-    transform: scale(1.05);
-}
-
-
-</style>
-<body style="text-align:center">
-    <h1>Welcome to SUDOKU game</h1>
-    <form id="start"action="/" method="post">
-    <h3>
-      <b>Select difficulty level</b>
-    </h3>
-    <div id="box">
-    <label for="easy">
-    <input class="inputlev" type="radio" id="easy" name="level" value="easy" required>Easy
-    </label>
-    <label for="hard">
-    <input class="inputlev" type="radio" id="hard" name="level" value="hard">Hard
-    </label>
-    <label for="extreme">
-    <input class="inputlev" type="radio" id="extreme" name="level" value="extreme">Extreme
-    </label><br><br>
-    <button id="startbtn">START GAME</button>
+<body>
+    <h1>Welcome to Sudoku!</h1>
+    <p>Select a difficulty level to start the game:</p>
+    
+    <div class="difficulty-form">
+        <form action="/" method="post">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="level" value="easy" checked> Easy
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="level" value="hard"> Hard
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="level" value="extreme"> Extreme
+                </label>
+            </div>
+            <button type="submit" class="btn">Start Game</button>
+        </form>
     </div>
-    </form>
 </body>
 </html>
