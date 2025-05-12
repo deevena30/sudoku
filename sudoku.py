@@ -1,7 +1,6 @@
 import numpy as np
 import random
 from flask import Flask, render_template, request, session, redirect, url_for
-import uuid
 
 sudoku = Flask(__name__)
 sudoku.secret_key = "sudoku_secret_key"  # Replace with a proper secret key in production
